@@ -62,6 +62,12 @@ client.on('message', msg => {
         msg.channel.send(msg.author.id);
     } else if (msg.content === `${ADMIN_COMMAND} tag`) {
         msg.channel.send(msg.author.tag);
+    } else if (msg.content === `${ADMIN_COMMAND} users`) {
+        const users = [];
+        msg.guild.channels.forEach(user => {
+            users.push(user);
+        })
+        msg.channel.send(users);
     }
 });
 
